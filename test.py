@@ -31,6 +31,16 @@ def animation():
 
     return Response(generate(), content_type='text/plain')
 
+@app.route('/hello-kitty-1')
+def animation1():
+    def generate():
+        while True:
+            for frame in frames('hello-kitty-1'):
+                yield clear_screen + frame + '\n'
+                time.sleep(0.2)
+
+    return Response(generate(), content_type='text/plain')
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='25.68.120.127', port=8080)
     #frames('hello-kitty-kiss')
